@@ -15,3 +15,4 @@ class Level(val levelNumber: Int, val towns: List<Town>) {
      */
     fun areAllTownsVisitedAndLooted(pirate: Pirate): Boolean {
         return towns.all { pirate.visitedTowns.contains(it.name) && it.isLootedSufficiently }
+    }

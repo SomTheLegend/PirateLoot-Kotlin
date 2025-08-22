@@ -177,19 +177,6 @@ object PirateGame {
                 return
             }
 
-            // This condition means the pirate is alive but didn't loot all towns.
-            // However, the while loop condition !level.areAllTownsVisitedAndLooted(pirate)
-            // already handles this. If the loop exits and the pirate is alive,
-            // it means all towns WERE looted. So, this specific game over condition might be redundant
-            // or there's a logic nuance I'm missing. For now, I'll assume the intention
-            // is to check if all towns were cleared before proceeding.
-            if (!level.areAllTownsVisitedAndLooted(pirate)) {
-                println("\n--- GAME OVER ---")
-                println("Captain ${pirate.name}, you have been defeated!") // This message might be confusing if pirate is alive
-                println("You failed to loot all towns sufficiently and can't proceed.")
-                println("Final Treasure: ${pirate.treasure}")
-                return
-            }
 
             println("\nCongratulations! You've conquered Level ${level.levelNumber}!")
 
