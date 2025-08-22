@@ -69,18 +69,19 @@ class Pirate(var name: String) {
      */
     fun changeWeapon() {
 
-        if (weapons.size == 1) return
+        if (weapons.size <= 1) return
 
         println("\nChoose your weapon:")
-        weapons.forEachIndexed { index, weapon ->
+        val weaponList = weapons.toList()
+        weaponList.forEachIndexed { index, weapon ->
             println("${index + 1}. ${weapon.name.lowercase()} " +
                     "(Damage: ${weapon.damage}, Accuracy: ${weapon.accuracy * 100}%)")
         }
         print("Enter weapon number: ")
         val choice = readlnOrNull()?.toIntOrNull()
 
-        if (choice != null && choice > 0 && choice <= weapons.size) {
-            currentWeapon = weapons.elementAt(choice - 1)
+        if (choice != null && choice > 0 && choice <= weaponList.size) {
+            currentWeapon = weaponList[choice - 1]
             println("You've switched weapons to ${currentWeapon.name.lowercase()}.")
         }
         else {

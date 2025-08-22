@@ -116,7 +116,7 @@ class Town(
                     }
 
                     2 -> {
-                        val newWeapon = Weapon.values().random() // Find a random weapon.
+                        val newWeapon = Weapon.entries.random() // Find a random weapon.
                         if (!pirate.weapons.contains(newWeapon)) {
                             pirate.acquireWeapon(newWeapon)
                         } else {
